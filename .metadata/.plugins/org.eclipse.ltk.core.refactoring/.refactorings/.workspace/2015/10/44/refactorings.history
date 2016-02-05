@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;Pritesh - ScalaActors&apos;" deleteContents="true" description="Delete resource &apos;Pritesh - ScalaActors&apos;" element1="/Pritesh - ScalaActors" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1446060713864"/>&#x0A;<refactoring comment="Delete resource &apos;Pritesh-ParallelThreads&apos;" deleteContents="true" description="Delete resource &apos;Pritesh-ParallelThreads&apos;" element1="/Pritesh-ParallelThreads" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1446079016835"/>
+</session>

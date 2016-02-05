@@ -1,0 +1,30 @@
+package basics
+/**
+ * Demonstrates one of simplest Scala programs
+ * @author Ron.Coleman
+ */
+object Hello {
+  def main(args: Array[String]): Unit = {
+    /*println("Hello, world!")
+    var num = List(1,2,3,4,5)
+    
+    var sum = num.reduce((a,b)=>a+b)
+    println("Total sum 1 to 5 : "+sum);
+    
+    var prod = num.foldLeft(1){_*_}
+    println("Product : "+prod);
+    
+    //var newList = num.map{_*1}
+    //or 
+    var newList=num.foldLeft(List[Int]())(_++List(_))
+    println("New List : "+newList);
+    
+    println("num foreach")
+    num.foreach(println(_))
+    
+    var even = num.filter(_%2==0)
+    println("even num : "+even)*/
+    
+    println((1 to 20).toList.foldLeft(List[Any]()){ (acc,x)=> if(x % 15 ==0) acc++List["FizzBuzz"]}) // else if(x % 5 ==0) acc++List["Buzz"] else if(x%3==0) acc++List["Fizz"] else acc++List[x]
+  }
+}

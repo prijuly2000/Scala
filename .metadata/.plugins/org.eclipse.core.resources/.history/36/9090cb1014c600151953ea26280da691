@@ -1,0 +1,22 @@
+
+public class Demo
+{
+	public void oddNumbers(int range)
+	{
+		System.out.println("Odd numbers : ");\
+		for(int num=1;num<range;num++)
+		{
+			if(num % 2 !=0)
+				System.out.println(" "+num);
+		}
+
+	}
+
+	public static void main(String[] args)
+	{
+		
+		
+
+	}
+
+}

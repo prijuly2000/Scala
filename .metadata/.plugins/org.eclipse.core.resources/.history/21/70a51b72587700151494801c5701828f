@@ -1,0 +1,101 @@
+
+/*
+ * @author pritesh
+ */
+
+import java.io.File
+import scala.collection.mutable.HashMap
+import scala.io.Source
+import scala.collection.immutable.ListMap
+import scala.util.control.Breaks
+
+object MobyDivideConquer {
+  def main(args: Array[String]): Unit = {
+    processFiles
+  }
+  
+  import scala.actors.Actor._
+
+  
+  def sumOfFactorsInRange(lower: Int, upper: Int, fileNames: List[File]): HashMap[String,Int] = {
+    var frequency = HashMap[String,Int]() withDefaultValue(0)
+    for(line <- Source.fromFile(fileNames(lower)).getLines().toList){
+      
+          val words = line.split(" +").toList
+          frequency=words.foldLeft(frequency){ (h, c) => 
+            
+            h.updated(c.toLowerCase(), h(c.toLowerCase())+1)
+        }        
+    }
+    
+    
+   // val sortedFrequency = HashMap(frequency.toSeq.sortWith(_._2 > _._2):_*)
+    /* val loop = new Breaks;
+    var i=0;
+    loop.breakable{
+      for ((k,v) <- sortedFrequency) 
+      {
+       
+        println(k+"  "+v)
+        i += 1
+        if(i == 10)
+          loop.break
+      }
+    }*/
+   
+    HashMap(frequency):_*
+    
+  }
+
+  def processFiles() = {
+    val cores = Runtime.getRuntime().availableProcessors()
+    
+    val directory = new File("data/15-text")
+    
+    val caller = self
+    
+    val fileNames = directory.listFiles.filter(_.isFile).toList
+    
+    if(directory.exists)
+      {
+          for (i <- 0 until fileNames.length) {
+              val lower = i 
+              
+              val upper = i
+            
+              actor {
+                caller ! sumOfFactorsInRange(lower, upper, fileNames)
+              }
+          }
+      }
+    else
+      println("Directory not found")
+    
+    
+    //var totalFrequency= HashMap[String,Int]() withDefaultValue(0)
+    val totalFrequency = (0 until fileNames.length).foldLeft(HashMap[String,Int]() withDefaultValue(0)) { (partialFrequency, i) =>
+      receive {
+        case frequencyInFile: HashMap[String,Int] => frequencyInFile.foldLeft(partialFrequency){(acc,p)=>
+           println(p._1+"  "+p._2)
+          acc.updated(p._1, acc.getOrElse(p._1, p._2)+p._2)  
+         
+        }
+              
+      }
+    }
+    val list = totalFrequency.foldLeft(List[(String,Int)]()) { (list, m) =>
+      val (word, freq) = m
+      list ++ List((word,freq))
+    }
+    
+    val sortedList = list.sortWith(_._2 < _._2)
+    for(i<-0 until 10)
+    {
+      println(sortedList(i)._1+"  "+sortedList(i)._2)
+    }
+    
+    
+    totalFrequency
+      
+  }
+}

@@ -1,0 +1,107 @@
+public class Demo
+{
+
+	/**
+	 * This function finds and prints all the odd numbers present in the
+	 * specified range.
+	 * 
+	 * @param range
+	 */
+	private void oddNumbers(int range)
+	{
+		System.out.println("Odd numbers : ");
+		for (int num = 1; num < range; num++)
+		{
+			if (num % 2 != 0)
+				System.out.println(" " + num);
+		}
+
+	}
+	
+	void findOddNumsInRange(int range)
+	{
+		oddNumbers(range);
+	}
+	public void marksWithSwitch(String grade)
+	{
+		// Compare the string for the grade.
+		// Display the message based on the grade
+		switch (grade)
+		{
+		case "A":
+			System.out.println("Exccellent: you have 90 to 100");
+			break;
+		case "B":
+			System.out.println("Good: you have 80 to 90");
+			break;
+		case "C":
+			System.out.println("Ok: you have 70 to 80");
+			break;
+		case "D": 
+			System.out.println("Damn: you have 60 to 70");
+			break;
+		default:
+			System.out.println("Go and ddie somewhere!!!");
+
+		}
+	}
+
+	/**
+	 * final static method which we can call using class name
+	 * but cannot override it as it is a final
+	 */
+	public final static void operators()
+	{
+		int a=20;
+		int b=40;
+		
+		// Check out the difference
+		System.out.println("Add :"+ (a+b));
+		System.out.println("Add :"+ a+b);
+		
+		// Arithmatic operators
+		System.out.println("Multi :"+(a*b));
+		System.out.println("Sub :"+(a-b));
+		System.out.println("Div :"+(a/b));
+		
+		// Increment and decrement
+		System.out.println("Post Incre :"+b++);
+		System.out.println("Pre Incre :"+ ++b);
+		System.out.println("Post Decre :"+b--);
+		System.out.println("Pre Incre :"+ --b);
+		
+		System.out.println("Ternary op : "+(a==20?"Yes":"No"));
+	}
+
+	public void marksWithIfElse(int points)
+	{
+		// Print the messsage based on the given points
+		if (points < 60)
+			System.out.println("You are doomed to fail");
+		else if (points < 70)
+			System.out.println("Damn!! You have less grades");
+		else if (points < 80)
+			System.out.println("Improve it!!");
+		else if (points < 90)
+			System.out.println("GOod...");
+		else
+			System.out.println("Excellent!!! :D");
+	}
+
+	public static void main(String[] args)
+	{
+		Demo demo = new Demo();
+		demo.oddNumbers(20);
+		demo.findOddNumsInRange(20);
+
+		demo.marksWithIfElse(40);
+		demo.marksWithSwitch("A");
+		
+		Demo.operators();
+
+	}
+
+}
+
+
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="installedFeatures">
+	</list>
+	<section name="ExternalProjectImportWizard">
+		<item value="true" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value=""/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\Users\pritesh\Downloads\scala-actors-0.zip"/>
+			<item value="C:\Users\pritesh\Downloads\ParaBond-master.zip"/>
+			<item value="C:\Users\pritesh\Downloads\scala-first-sight-0.zip"/>
+			<item value="F:\MS\MS\Fall 2015\Parallel Processing\Assignment 1\Pritesh-ParallelThreadsv0.zip"/>
+			<item value="F:\MS\MS\Fall 2015\Parallel Processing\Assignment 2\Pritesh-ScalaActors.zip"/>
+		</list>
+	</section>
+</section>
